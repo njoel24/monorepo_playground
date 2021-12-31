@@ -1,0 +1,25 @@
+{
+  "name": "monorepo_playground",
+  "private": true,
+  "workspaces": [
+    "shopping-list",
+    "cart"
+  ],
+  "version": "1.0.0",
+  "description": "playground around monorepo and microfrontend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/njoel24/monorepo_playground.git"
+  },
+  "author": "Cristiano Salvatore Anselmi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/njoel24/monorepo_playground/issues"
+  },
+  "homepage": "https://github.com/njoel24/monorepo_playground#readme",
+  "packageManager": "yarn@3.1.1"
+}
