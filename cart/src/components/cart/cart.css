@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 200px;
+  height: 200px;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
