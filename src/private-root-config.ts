@@ -3,8 +3,8 @@ import { registerApplication, start } from 'single-spa';
 
 // Simple usage
 registerApplication(
-  'shpping-list',
-  () => import('../shopping-list/public/index.js'),
+  'shopping-list',
+  () => import(process.env.isLocal ? '../shopping-list/public/index.js' : '../shopping-list/public/index.js'),
   (location) => location.pathname.startsWith('/'),
 );
 
@@ -12,9 +12,10 @@ registerApplication(
 registerApplication(
   'cart',
   () => { 
-   return  import('../cart/www/build/index.esm.js')
+   return  import(process.env.isLocal ? '../cart/www/build/index.esm.js' : '../cart/www/build/index.esm.js' )
   },
-  (location) => location.pathname.startsWith('/')
+  (location) => location.pathname.startsWith('/'),
+  { isLocal:  `${process.env.isLocal}` }
 );
 
 start();

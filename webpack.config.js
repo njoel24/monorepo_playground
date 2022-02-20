@@ -1,6 +1,13 @@
+const webpack = require("webpack");
 const { merge } = require("webpack-merge");
 const singleSpaDefaults = require("webpack-config-single-spa-ts");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+const getEnvironment = (env = {}) => {
+  return {
+    "process.env.isLocal": env && env.isLocal,
+  };
+};
 
 module.exports = (webpackConfigEnv, argv) => {
   const orgName = "private";
@@ -23,6 +30,7 @@ module.exports = (webpackConfigEnv, argv) => {
           orgName,
         },
       }),
+      new webpack.DefinePlugin(getEnvironment(webpackConfigEnv)),
     ],
   });
 };

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Root Config</title>
+  <title>My Shop</title>
   <style>
     .container {
       display: flex;
@@ -12,14 +12,6 @@
       width: 100%;
     }
   </style>
-
-  <!--
-    Remove this if you only support browsers that support async/await.
-    This is needed by babel to share largeish helper code for compiling async/await in older
-    browsers. More information at https://github.com/single-spa/create-single-spa/issues/112
-  -->
-  <script src="https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.7/runtime.min.js"></script>
-
   <!--
     This CSP allows any SSL-enabled host and for arbitrary eval(), but you should limit these directives further to increase your app's security.
     Learn more about CSP policies at https://content-security-policy.com/#directive
@@ -54,21 +46,23 @@
   <script type="systemjs-importmap">
     {
       "imports": {
-        "welcome": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js",
         "@private/root-config": "//localhost:9000/private-root-config.js",
         "cart": " http://localhost:3333/",
         "shopping-list": "http://localhost:8081/index.js"
       }
     }
   </script>
+  <% } else { %>
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "@private/root-config": "//localhost:9000/private-root-config.js",
+          "cart": " http://localhost:3333/",
+          "shopping-list": "http://localhost:8081/index.js"
+        }
+      }
+    </script>
   <% } %>
-
-  <!--
-    If you need to support Angular applications, uncomment the script tag below to ensure only one instance of ZoneJS is loaded
-    Learn more about why at https://single-spa.js.org/docs/ecosystem-angular/#zonejs
-  -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/zone.js@0.11.3/dist/zone.min.js"></script> -->
-
   <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
   <% if (isLocal) { %>
   <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.js"></script>

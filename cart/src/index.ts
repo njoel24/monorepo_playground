@@ -1,3 +1,5 @@
+import { hosts } from './constants';
+
 export { Components, JSX } from './components';
 
 /* eslint-disable prettier/prettier */
@@ -8,12 +10,13 @@ function bootstrap() {
     console.log("cart is bootstrapped!");
   });
 }
-function mount() {
+function mount(props) {
+  const { isLocal } = props;
   return Promise.resolve().then(() => {
     // Do framework UI rendering here
     console.log("cart is mounted!");
     const script = document.createElement('script');
-    script.src = 'http://localhost:3333/build/cart.esm.js';
+    script.src = isLocal ? hosts.localBuilder : hosts.prodBuilder;
     script.type = 'module';
     document.body.appendChild(script);
 
