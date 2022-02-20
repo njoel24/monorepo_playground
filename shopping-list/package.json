@@ -6,9 +6,11 @@
     "lodash": "^4.17.21"
   },
   "scripts": {
-    "start": "http-server --cors public"
+    "start": "http-server --cors public",
+    "deploy:live": "cd public && deploy-aws-s3-cloudfront --bucket my-bucket-njoel24-replica2"
   },
   "devDependencies": {
+    "deploy-aws-s3-cloudfront": "^3.6.0",
     "http-server": "^14.1.0"
   }
 }

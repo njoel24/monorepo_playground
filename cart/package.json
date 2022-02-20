@@ -23,13 +23,15 @@
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
+    "generate": "stencil generate",
+    "deploy:live": "yarn build && cd dist && deploy-aws-s3-cloudfront --bucket my-bucket-njoel24-replica"
   },
   "dependencies": {
     "@stencil/core": "^2.13.0"
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",
+    "deploy-aws-s3-cloudfront": "^3.6.0",
     "jest": "^27.4.5",
     "jest-cli": "^27.4.5",
     "puppeteer": "^10.0.0"
